@@ -1,4 +1,4 @@
-"""Contents the code for generate the level and refresh it
+"""Contain the code for generate the level and refresh it
 """
 
 import pygame
@@ -13,7 +13,7 @@ class GameLvl(object):
         self.size_sprite = 40
 
     def generate_lvl(self):
-        """Permit to generate the level with the level_1.txt
+        """Permit to generate the level with a text file
         """
 
         with open(self.lvl_file, "r") as file_read:
@@ -43,8 +43,9 @@ class GameLvl(object):
         num_line = 0
 
         for line in self.lvl_structure:
-            #We read all the sprite in line
+
             num_column = 0
+            #We read all the sprite in line
             for sprite in line:
 
                 x_grid = num_column * self.size_sprite
