@@ -12,7 +12,6 @@ def main():
     """The function contents the main code of the game
     """
     game = True
-    user_input = ""
     w_sprite = 40
     l_sprite = 40
     w_width = 15 * w_sprite
@@ -24,15 +23,25 @@ def main():
     dir_file = "level_1.txt"
     main_lvl = lvl.GameLvl(dir_file)
     main_lvl.generate_lvl()
+    macgyver = mac.Player()
 
     while game:    #The main loop of the game
 
         main_lvl.refresh_lvl(window)
-
+        macgyver.move(window, "")
+        #Capture the event of the player for the direction
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:    # pylint: disable=no-member
-                game = False
-
+                if event.key == pygame.K_DOWN:    # pylint: disable=no-member
+                    macgyver.move(window, "DOWN")
+                elif event.key == pygame.K_UP:    # pylint: disable=no-member
+                    macgyver.move(window, "UP")
+                elif event.key == pygame.K_LEFT:    # pylint: disable=no-member
+                    macgyver.move(window, "LEFT")
+                elif  event.key == pygame.K_RIGHT:    # pylint: disable=no-member
+                    macgyver.move(window, "RIGHT")
+                elif event.key == pygame.K_ESCAPE:    # pylint: disable=no-member
+                    game = False
 
         pygame.display.flip()
 
