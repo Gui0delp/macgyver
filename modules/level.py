@@ -9,7 +9,7 @@ class GameLvl(object):
     def __init__(self, name_file):
 
         self.lvl_file = name_file
-        self.lvl_structure = []
+        self.game_level = []
         self.size_sprite = 40
 
     def generate_lvl(self):
@@ -20,15 +20,17 @@ class GameLvl(object):
             file_read = file_read.read()
 
         line = []
+        lvl_structure = []
 
         for element in file_read:
 
             if element != "\n":    #Try to know the end of the line
                 line.append(element)
             else:    #If it the end of the line, add the line to the structure
-                self.lvl_structure.append(line)
+                lvl_structure.append(line)
                 line = []
-
+            #Save the structure into the game_level
+            self.game_level = lvl_structure
 
     def refresh_lvl(self, screen):
         """Permit to refresh the level
@@ -42,7 +44,7 @@ class GameLvl(object):
 
         num_line = 0
 
-        for line in self.lvl_structure:
+        for line in self.game_level:
 
             num_column = 0
             #We read all the sprite in line
