@@ -23,7 +23,7 @@ def main():
     dir_file = "level_1.txt"
     main_lvl = lvl.GameLvl(dir_file)
     main_lvl.generate_lvl()
-    macgyver = mac.Player()
+    macgyver = mac.Player(main_lvl.game_level)
 
     while game:    #The main loop of the game
 
