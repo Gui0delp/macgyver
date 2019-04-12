@@ -1,6 +1,7 @@
 """Contain the code for generate the level and refresh it
 """
 
+import random
 import pygame
 
 class GameLvl(object):
@@ -31,6 +32,28 @@ class GameLvl(object):
                 line = []
             #Save the structure into the game_level
             self.game_level = lvl_structure
+
+
+        i = 0
+
+        while i != 3:
+
+            test = True
+            #Generate the 3 objects of the game with the random module
+            while test:
+
+                object_x = random.randint(0, 14)
+                object_y = random.randint(0, 14)
+
+                if self.game_level[object_y][object_x] == "P":
+                    self.game_level[object_y][object_x] = "O"
+                    object_x = 0
+                    object_y = 0
+                    test = False
+            i += 1
+
+        #Generate the guardian manually
+        self.game_level[14][1] = "G"
 
     def refresh_lvl(self, screen):
         """Permit to refresh the level
