@@ -10,6 +10,9 @@ class Player(object):
         self.x_mac = 14
         self.y_mac = 0
         self.lvl = lvl
+        self.u_obj = 0
+
+        self.calibri_font = pygame.font.SysFont("Calibri", 22)
 
     def move(self, screen, direction):
         """Permit to move the player
@@ -44,7 +47,29 @@ class Player(object):
 
         screen.blit(player, (self.x_mac * size_sprite, self.y_mac * size_sprite))
 
-    def useless(self):
-        """useless methode for respect PIP8
+    def user_interface(self, screen, statut):
+        """Permit to manage the user interface
         """
-        pass
+        if self.lvl[self.y_mac][self.x_mac] == "O":
+            self.lvl[self.y_mac][self.x_mac] = "P"
+            self.u_obj += 1
+
+        #user win
+        if statut == 1:
+            win_message = self.calibri_font.render("Great work you win!", True, (255, 255, 255))
+            info_message = self.calibri_font.render("PRESS ESCAPE TO QUIT", True, (255, 255, 255))
+            screen.blit(win_message, (40, 548))
+            screen.blit(info_message, (220, 280))
+        #user loose
+        elif statut == 0:
+            loose_message = self.calibri_font.render("You loose!", True, (255, 255, 255))
+            info_message = self.calibri_font.render("PRESS ESCAPE TO QUIT", True, (255, 255, 255))
+            screen.blit(loose_message, (40, 548))
+            screen.blit(info_message, (220, 280))
+        #nothing
+        else:
+            pass
+
+        #Update of the object number
+        counter_obj = self.calibri_font.render("Object : " + str(self.u_obj), True, (255, 255, 255))
+        screen.blit(counter_obj, (0, 0))
