@@ -57,6 +57,7 @@ class GameLvl(object):
 
     def refresh_lvl(self, screen):
         """Permit to refresh the level
+        screen type: Object
         """
         path = pygame.image.load("resources/path.png").convert_alpha()    #P
         wall = pygame.image.load("resources/wall.png").convert_alpha()    #W
