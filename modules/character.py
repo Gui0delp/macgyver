@@ -16,6 +16,8 @@ class Player(object):
 
     def move(self, screen, direction):
         """Permit to move the player
+        direction type:  String
+        screen type: Object
         """
         size_sprite = 40
         player = pygame.image.load("resources/MacGyver_2.png").convert_alpha()
@@ -49,6 +51,8 @@ class Player(object):
 
     def user_interface(self, screen, statut):
         """Permit to manage the user interface
+        screen type: object
+        statut type: integer
         """
         if self.lvl[self.y_mac][self.x_mac] == "O":
             self.lvl[self.y_mac][self.x_mac] = "P"
