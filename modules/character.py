@@ -51,8 +51,8 @@ class Player(object):
 
     def user_interface(self, screen, statut):
         """Permit to manage the user interface
-        screen type: object
-        statut type: integer
+        screen type: Object
+        statut type: Integer
         """
         if self.lvl[self.y_mac][self.x_mac] == "O":
             self.lvl[self.y_mac][self.x_mac] = "P"
