@@ -10,7 +10,7 @@ Installation for Windows:
 get-pip.py for Python 3.2 or later:
 https://bootstrap.pypa.io/3.2/get-pip.py
 
-2 - Open a Command (Ctrl+r -> cmd) and navigate to the get-pip.py file.
+2 - Open a Command (Window+r -> cmd) and navigate to the get-pip.py file.
 
 3 - Run the following command: python get-pip.py.
 
